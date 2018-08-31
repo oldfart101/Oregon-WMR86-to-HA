@@ -10,9 +10,6 @@ I also have an Acurite 00592TXR temperature & humidity monitor (sensor model num
 
 The above items transmit on the 433MHz band
 
-and not a 433MHz transmitter (connected via NODEMCU)
-DHT22 Digital Temperature and Humidity Sensor (for indoor temperature data) https://www.amazon.co.uk/MakerHawk-Digital-Temperature-Humidity-Measure/dp/B072391SJV/ref=sr_1_1_sspa?ie=UTF8&qid=1535365668&sr=8-1-spons&keywords=dht22+temperature-humidity+sensor&psc=1
-
 The Oregon parts transmit via 433MHz to a bespoke receiver, but I capture the stream and then send to my MQTT server, using a NooElec NESDR Mini USB RTL-SDR, DVB-T & ADS-B Receiver.
 
 My set-up works for me! I have a central MQTT server, which everyone in the house can access. So all data for Home Assistant can be got from there.
