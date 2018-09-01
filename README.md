@@ -29,7 +29,7 @@ You can check the MQTT messages with:
 mosquitto_sub -h 192.168.1.20 -p 1885 -u username -P password -t 'Oregon/#' -v
 
 In Home Assistant, my MQTT server is set up (configuration.yaml:
-
+```
 mqtt:
  broker: 192.168.1.20
  port: 1885
@@ -88,3 +88,4 @@ to read the sensors:
   name: 'Rain Rate'
   unit_of_measurement: 'in/hr'
   value_template: '{{ value }}'   
+```
