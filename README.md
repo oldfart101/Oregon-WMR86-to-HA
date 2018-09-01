@@ -28,8 +28,9 @@ There are other methods of sending the file, such as JSON or syslog, but I chose
 Now, on the MQTT server, I intercept the MQTT messages and reformat them for Home Assistant using a small python script. (mqtt_read_csv.py)
 
 You can check the MQTT messages with:
+```
 mosquitto_sub -h 192.168.1.20 -p 1885 -u username -P password -t 'Oregon/#' -v
-
+```
 In Home Assistant, my MQTT server is set up (configuration.yaml:
 ```
 mqtt:
