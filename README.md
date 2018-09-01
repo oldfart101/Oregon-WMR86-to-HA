@@ -18,7 +18,9 @@ Thanks to Benjamin Larsson for his Program to decode traffic from Devices that a
 
 On the Raspberry Pi with the NooElec NESDR, I have 433_rtl installed.
 I run 
+```
 rtl_433 -R 40 -R 12 -F csv -U | mosquitto_pub -h 192.168.1.20 -p 1885 -u username -P password -t home/rtl_433 -l
+```
 where 192.168.1.20 is the address of my MQTT server
 
 There are other methods of sending the file, such as JSON or syslog, but I chose csv.
