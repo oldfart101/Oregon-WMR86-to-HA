@@ -2,9 +2,9 @@
 Oregon WMR86 Weather Station to MQTT to Home Assistant
 
 I have an Oregon WMR86 Weather Station, which has these bits in the pack:
-• Wind Sensor (WGR800)
-• Temperature and Humidity Sensor  (THGR800)
-• Rain Gauge (PCR800)
+* Wind Sensor (WGR800)
+* Temperature and Humidity Sensor  (THGR800)
+* Rain Gauge (PCR800)
 
 I also have an Acurite 00592TXR temperature & humidity monitor (sensor model number 0600RM)
 
