@@ -31,7 +31,7 @@ You can check the MQTT messages with:
 ```
 mosquitto_sub -h 192.168.1.20 -p 1885 -u username -P password -t 'Oregon/#' -v
 ```
-In Home Assistant, my MQTT server is set up (configuration.yaml:
+In Home Assistant, my MQTT server is set up (configuration.yaml):
 ```
 mqtt:
  broker: 192.168.1.20
