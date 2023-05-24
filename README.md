@@ -46,7 +46,7 @@ power.yaml
 3dprinter-power.yaml
 garage.yaml
 ```
-To allow the EmonPi to send MQTT messages to my broker, edit the file
+To allow the EmonPi to send MQTT messages to my broker (running on Synology nas), edit the file
 /volume1/@appstore/mosquitto/var/mosquitto.conf
 ```
 pid_file /var/packages/mosquitto/target/var/mosquitto.pid
