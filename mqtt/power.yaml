@@ -1,0 +1,9 @@
+- name: 'Home Power'
+  state_topic: 'emon/emonpi/power1'
+  unit_of_measurement: 'W'
+  value_template: '{{ value }}'     
+
+- name: 'Voltage'
+  state_topic: 'emon/emonpi/vrms'
+  unit_of_measurement: 'V'
+  value_template: '{{ value | round(3)  }}' 

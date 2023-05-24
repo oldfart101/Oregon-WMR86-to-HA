@@ -1,0 +1,32 @@
+#Sonoff Pow R2
+#taspow1
+    
+- name: "3D printer Current"
+  state_topic: "taspow1/SENSOR"
+  unit_of_measurement: 'A'
+  value_template: "{{ value_json['ENERGY'].Current }}"
+  
+- name: "3D printer Power"
+  state_topic: "taspow1/SENSOR"
+  unit_of_measurement: 'W'
+  value_template: "{{ value_json['ENERGY'].Power }}"
+  
+- name: "3D printer state"
+  state_topic: "taspow1/STATE"
+#  unit_of_measurement: 'W'
+  value_template: "{{ value_json['POWER'] }}"
+  
+- name: "3D printer Power Today"
+  state_topic: "taspow1/SENSOR"
+  unit_of_measurement: 'kWh'
+  value_template: "{{ value_json['ENERGY'].Today }}"
+  
+- name: "3D printer Total Power"
+  state_topic: "taspow1/SENSOR"
+  unit_of_measurement: 'kWh'
+  value_template: "{{ value_json['ENERGY'].Total }}"
+  
+- name: "3D printer Voltage"
+  state_topic: "taspow1/SENSOR"
+  unit_of_measurement: 'V'
+  value_template: "{{ value_json['ENERGY'].Voltage }}"

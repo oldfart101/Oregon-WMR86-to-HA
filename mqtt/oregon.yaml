@@ -1,0 +1,79 @@
+#oregon sensors
+- name: "Outdoor Temperature"
+  state_topic: "home/rtl_433"
+  unit_of_measurement: '°C'
+  value_template: >
+    {% if value_json is defined and value_json.model == 'THGR810' %}
+      {{ value_json.temperature_C }}
+    {% else %}
+      {{ states('sensor.outdoor_temperature') }}
+    {% endif %}  
+
+- name: "Outdoor Humidity"
+  state_topic: "home/rtl_433"
+  unit_of_measurement: '%'
+  value_template: >
+    {% if value_json is defined and value_json.model == 'THGR810' %}
+      {{ value_json.humidity }}
+    {% else %}
+      {{ states('sensor.outdoor_humidity') }}
+    {% endif %}
+
+
+- name: 'Rain Total'
+  state_topic: 'home/rtl_433'
+  unit_of_measurement: 'in'
+  value_template: >
+    {% if value_json is defined and value_json.model == 'PCR800' %}
+      {{ value_json.rain_total }} 
+    {% else %}       
+      {{ states('sensor.rain_total') }}
+    {% endif %}
+    
+- name: 'Rain Rate'
+  state_topic: 'home/rtl_433'
+  unit_of_measurement: 'in/hr'
+  value_template: >
+    {% if value_json is defined and value_json.model == 'PCR800' %}
+      {{ value_json.rain_rate }} 
+    {% else %}       
+      {{ states('sensor.rain_rate') }}
+    {% endif %}  
+    
+
+- name: "Wind Gust"
+  state_topic: "home/rtl_433"
+  unit_of_measurement: 'm/s'
+  value_template: >
+    {% if value_json is defined and value_json.model == 'WGR800' %}
+      {{ value_json.gust }}
+    {% else %}
+      {{ states('sensor.wind_gust') }}
+    {% endif %}    
+    
+- name: 'Wind Direction'
+  state_topic: 'home/rtl_433'
+  unit_of_measurement: ''
+  value_template: >-
+    {% if value_json is defined and value_json.model == 'WGR800' %}
+      {% set wd = value_json.direction | int %}
+      {% if wd <= 11 or wd > 348 %}North
+      {% elif wd >11 and wd <=34 %}North North East
+      {% elif wd >34 and wd <=56 %}North East
+      {% elif wd >56 and wd <=79 %}East North East
+      {% elif wd >79 and wd <=101 %}East
+      {% elif wd >101 and wd <=124 %}East South East
+      {% elif wd >124 and wd <=146 %}South East
+      {% elif wd >146 and wd <=169 %}South South East
+      {% elif wd >169 and wd <=191 %}South
+      {% elif wd >191 and wd <=214 %}South South West
+      {% elif wd >214 and wd <=236 %}South West
+      {% elif wd >236 and wd <=259 %}West South West
+      {% elif wd >259 and wd <=281 %}West
+      {% elif wd >281 and wd <=304 %}West North West
+      {% elif wd >304 and wd <=326 %}West North West
+      {% elif wd >326 and wd <=348 %}North North West
+      {% endif %}
+    {% else %}       
+      {{ states('sensor.wind_direction') }}
+    {% endif %} 

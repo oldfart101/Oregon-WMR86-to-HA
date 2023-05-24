@@ -1,0 +1,21 @@
+- name: "Indoor Humidity"
+#'acurite/humidity'
+  state_topic: "home/rtl_433"
+  unit_of_measurement: '%'
+  value_template: >
+    {% if value_json is defined and value_json.id == 11794 %}
+      {{ value_json.humidity }}
+    {% else %}
+      {{ states('sensor.indoor_humidity') }}
+    {% endif %}
+
+- name: "Indoor Temp"
+#'acurite/temp'
+  state_topic: "home/rtl_433"
+  unit_of_measurement: '°C'
+  value_template: >
+    {% if value_json is defined and value_json.id == 11794 %}
+      {{ value_json.temperature_C }}
+    {% else %}
+      {{ states('sensor.indoor_temp') }}
+    {% endif %}

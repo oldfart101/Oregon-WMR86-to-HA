@@ -1,0 +1,15 @@
+# nodemcu
+- name: "Garage Humidity"
+  state_topic: "dad/sensorDad1"    
+  unit_of_measurement: "%"  
+  value_template: '{{ value_json.humidity | round(1) }}' 
+  
+- name: "Garage Temperature"
+  state_topic: "dad/sensorDad1"    
+#  unit_of_measurement: "°F"  
+#  value_template: '{{ value_json.temperature | round(1) }}'
+
+##try this
+  unit_of_measurement: '°C'
+#  value_template: '{{ (value_json.temperature|float - 32) * (5/9)|round(1) }}'
+  value_template: '{{ ((value_json.temperature|float - 32) * 5/9)|round(1) }}'

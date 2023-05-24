@@ -1,0 +1,38 @@
+#Sonoff Pow R2
+#taspow2
+- name: 'tas2cost'
+  state_topic: "taspow2/SENSOR"
+  unit_of_measurement: '€'
+  value_template: >-
+    {% set d1 = (states('sensor.tas2_total_power')  | float * 0.3363 ) | round(3) %}
+    {{ d1 }}
+
+- name: "Tasm2tota1 Current"
+  state_topic: "taspow2/SENSOR"
+  unit_of_measurement: 'A'
+  value_template: "{{ value_json['ENERGY'].Current }}"
+  
+- name: "Tas2tota1 Power"
+  state_topic: "taspow2/SENSOR"
+  unit_of_measurement: 'W'
+  value_template: "{{ value_json['ENERGY'].Power }}"
+  
+- name: "Tas2tota1 State"
+  state_topic: "taspow2/STATE"
+#  unit_of_measurement: 'W'
+  value_template: "{{ value_json['POWER'] }}"
+  
+- name: "Tas2 Power Today"
+  state_topic: "taspow2/SENSOR"
+  unit_of_measurement: 'kWh'
+  value_template: "{{ value_json['ENERGY'].Today }}"
+  
+- name: "Tas2 Total Power"
+  state_topic: "taspow2/SENSOR"
+  unit_of_measurement: 'kWh'
+  value_template: "{{ value_json['ENERGY'].Total }}"
+  
+- name: "Tas2 Voltage"
+  state_topic: "taspow2/SENSOR"
+  unit_of_measurement: 'V'
+  value_template: "{{ value_json['ENERGY'].Voltage }}"
