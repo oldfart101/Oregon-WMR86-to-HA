@@ -46,3 +46,22 @@ power.yaml
 3dprinter-power.yaml
 garage.yaml
 ```
+To allow the EmonPi to send MQTT messages to my broker, edit the file
+/volume1/@appstore/mosquitto/var/mosquitto.conf
+```
+pid_file /var/packages/mosquitto/target/var/mosquitto.pid
+
+listener >put your mqtt broker port here
+
+password_file /volume1/@appstore/mosquitto/var/passwd2
+allow_anonymous true
+
+connection emonpi
+address emonpi address here:1883
+remote_username emonpi username
+remote_password emonpi password
+clientid mosqsub
+try_private false
+start_type automatic
+topic emon
+```
